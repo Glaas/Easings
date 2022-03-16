@@ -1,13 +1,13 @@
 {
-  "name": "com.sebessentials.sebessentials-math",
+  "name": "com.glaas.easings",
   "version": "0.1.0",
-  "displayName": "MathLib",
-  "description": "Small maths and curves library for Unity",
+  "displayName": "Easings",
+  "description": "Small curves library for Unity",
   "unity": "2019.1",
   "documentationUrl": "https://example.com/",
   "author": {
-    "name": "Unity",
-    "email": "unity@example.com",
+    "name": "Sebastien \"Glaas\" Decuyper",
+    "email": "seb.decuyper@gmail.com",
     "url": "https://www.sebdec.net"
   }
 }

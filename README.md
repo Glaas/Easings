@@ -1,4 +1,4 @@
-# SebEssentials_Math
+# Easings
 
 
-A small math and curves library for use in Unity.
+A small curve library for use in Unity.
