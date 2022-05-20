@@ -1,4 +1,4 @@
 # Easings
 
 
-A smallcurves library for Unity.
+A curves library for Unity.
