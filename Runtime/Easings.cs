@@ -1,108 +1,127 @@
+using System;
 using UnityEngine;
-namespace Glaas.EasingsCurves
+
+namespace Glaas.EasingCurves
 {
     public static class Easings
     {
-        public enum curveType
+        public enum Curve
         {
-            easeInSine = 0,
-            easeOutSine = 1,
-            easeInOutSine = 2,
+            EaseInSine = 0,
+            EaseOutSine = 1,
+            EaseInOutSine = 2,
 
+            EaseInQuad = 3,
+            EaseOutQuad = 4,
+            EaseInOutQuad = 5,
 
-            easeInQuad = 3,
-            easeOutQuad = 4,
-            easeInOutQuad = 5,
+            EaseInCubic = 6,
+            EaseOutCubic = 7,
+            EaseInOutCubic = 8,
 
+            EaseInQuart = 9,
+            EaseOutQuart = 10,
+            EaseInOutQuart = 11,
 
-            easeInCubic = 6,
-            easeOutCubic = 7,
-            easeInOutCubic = 8,
+            EaseInQuint = 12,
+            EaseOutQuint = 13,
+            EaseInOutQuint = 14,
 
+            EaseInExpo = 15,
+            EaseOutExpo = 16,
+            EaseInOutExpo = 17,
 
-            easeInQuart = 9,
-            easeOutQuart = 10,
-            easeInOutQuart = 11,
+            EaseInCirc = 18,
+            EaseOutCirc = 19,
+            EaseInOutCirc = 20,
 
+            EaseInBack = 21,
+            EaseOutBack = 22,
+            EaseInOutBack = 23,
 
-            easeInQuint = 12,
-            easeOutQuint = 13,
-            easeInOutQuint = 14,
+            EaseInElastic = 24,
+            EaseOutElastic = 25,
+            EaseInOutElastic = 26,
 
-            easeInExpo = 15,
-            easeOutExpo = 16,
-            easeInOutExpo = 17,
+            EaseInBounce = 27,
+            EaseOutBounce = 28,
+            EaseInOutBounce = 29,
 
-
-            easeInCirc = 18,
-            easeOutCirc = 19,
-            easeInOutCirc = 20,
-
-
-            easeInBack = 21,
-            easeOutBack = 22,
-            easeInOutBack = 23,
-
-
-            easeInElastic = 24,
-            easeOutElastic = 25,
-            easeInOutElastic = 26,
-
-
-            easeInBounce = 27,
-            easeOutBounce = 28,
-            easeInOutBounce = 29
+            Linear = 30
         }
-        public static string[] curves = new string[] {
-            "easeInSine",
-            "easeOutSine",
-            "easeInOutSine",
 
-            "easeInQuad",
-            "easeOutQuad",
-            "easeInOutQuad",
+        public static string[] CurvesNames = new string[]
+        {
+            "EaseInSine",
+            "EaseOutSine",
+            "EaseInOutSine",
 
-            "easeInCubic",
-            "easeOutCubic",
-            "easeInOutCubic",
+            "EaseInQuad",
+            "EaseOutQuad",
+            "EaseInOutQuad",
 
-            "easeInQuart",
-            "easeOutQuart",
-            "easeInOutQuart",
+            "EaseInCubic",
+            "EaseOutCubic",
+            "EaseInOutCubic",
 
-            "easeInQuint",
-            "easeOutQuint",
-            "easeInOutQuint",
+            "EaseInQuart",
+            "EaseOutQuart",
+            "EaseInOutQuart",
 
-            "easeInExpo",
-            "easeOutExpo",
-            "easeInOutExpo",
+            "EaseInQuint",
+            "EaseOutQuint",
+            "EaseInOutQuint",
 
-            "easeInCirc",
-            "easeOutCirc",
-            "easeInOutCirc",
+            "EaseInExpo",
+            "EaseOutExpo",
+            "EaseInOutExpo",
 
-            "easeInBack",
-            "easeOutBack",
-            "easeInOutBack",
+            "EaseInCirc",
+            "EaseOutCirc",
+            "EaseInOutCirc",
 
-            "easeInElastic",
-            "easeOutElastic",
-            "easeInOutElastic",
+            "EaseInBack",
+            "EaseOutBack",
+            "EaseInOutBack",
 
-            "easeInBounce",
-            "easeOutBounce",
-            "easeInOutBounce"
+            "EaseInElastic",
+            "EaseOutElastic",
+            "EaseInOutElastic",
+
+            "EaseInBounce",
+            "EaseOutBounce",
+            "EaseInOutBounce",
+
+            "Linear"
         };
 
-        public static float easeInSine(float x) { return 1 - Mathf.Cos((x * Mathf.PI) / 2); }
-        public static float easeOutSine(float x) { return Mathf.Sin((x * Mathf.PI) / 2); }
-        public static float easeInOutSine(float x) { return -(float)(Mathf.Cos(Mathf.PI * x) - 1) / 2; }
+        public static float EaseInSine(float x)
+        {
+            return 1 - Mathf.Cos((x * Mathf.PI) / 2);
+        }
+
+        public static float EaseOutSine(float x)
+        {
+            return Mathf.Sin((x * Mathf.PI) / 2);
+        }
+
+        public static float EaseInOutSine(float x)
+        {
+            return -(Mathf.Cos(Mathf.PI * x) - 1) / 2;
+        }
 
 
-        public static float easeInQuad(float x) { return x * x; }
-        public static float easeOutQuad(float x) { return -(x * (x - 2)); }
-        public static float easeInOutQuad(float x)
+        public static float EaseInQuad(float x)
+        {
+            return x * x;
+        }
+
+        public static float EaseOutQuad(float x)
+        {
+            return -(x * (x - 2));
+        }
+
+        public static float EaseInOutQuad(float x)
         {
             x *= 2;
             if (x < 1) return 0.5f * x * x;
@@ -111,13 +130,18 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInCubic(float x) { return x * x * x; }
-        public static float easeOutCubic(float x)
+        public static float EaseInCubic(float x)
+        {
+            return x * x * x;
+        }
+
+        public static float EaseOutCubic(float x)
         {
             x--;
             return (x * x * x + 1);
         }
-        public static float easeInOutCubic(float x)
+
+        public static float EaseInOutCubic(float x)
         {
             x *= 2;
             if (x < 1) return 0.5f * x * x * x;
@@ -126,13 +150,18 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInQuart(float x) { return x * x * x * x; }
-        public static float easeOutQuart(float x)
+        public static float EaseInQuart(float x)
+        {
+            return x * x * x * x;
+        }
+
+        public static float EaseOutQuart(float x)
         {
             x--;
             return -(x * x * x * x - 1);
         }
-        public static float easeInOutQuart(float x)
+
+        public static float EaseInOutQuart(float x)
         {
             x *= 2;
             if (x < 1) return 0.5f * x * x * x * x;
@@ -141,13 +170,18 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInQuint(float x) { return x * x * x * x * x; }
-        public static float easeOutQuint(float x)
+        public static float EaseInQuint(float x)
+        {
+            return x * x * x * x * x;
+        }
+
+        public static float EaseOutQuint(float x)
         {
             x--;
             return (x * x * x * x * x + 1);
         }
-        public static float easeInOutQuint(float x)
+
+        public static float EaseInOutQuint(float x)
         {
             x *= 2;
             if (x < 1) return 0.5f * x * x * x * x * x;
@@ -156,9 +190,17 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInExpo(float x) { return (x == 0) ? 0 : Mathf.Pow(2, 10 * (x - 1)); }
-        public static float easeOutExpo(float x) { return (x == 1) ? 1 : (-Mathf.Pow(2, -10 * x) + 1); }
-        public static float easeInOutExpo(float x)
+        public static float EaseInExpo(float x)
+        {
+            return (x == 0) ? 0 : Mathf.Pow(2, 10 * (x - 1));
+        }
+
+        public static float EaseOutExpo(float x)
+        {
+            return (x == 1) ? 1 : (-Mathf.Pow(2, -10 * x) + 1);
+        }
+
+        public static float EaseInOutExpo(float x)
         {
             if (x == 0) return 0;
             if (x == 1) return 1;
@@ -169,13 +211,18 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInCirc(float x) { return -(Mathf.Sqrt(1 - (x * x)) - 1); }
-        public static float easeOutCirc(float x)
+        public static float EaseInCirc(float x)
+        {
+            return -(Mathf.Sqrt(1 - (x * x)) - 1);
+        }
+
+        public static float EaseOutCirc(float x)
         {
             x--;
             return Mathf.Sqrt(1 - (x * x));
         }
-        public static float easeInOutCirc(float x)
+
+        public static float EaseInOutCirc(float x)
         {
             x *= 2;
             if (x < 1) return -0.5f * (Mathf.Sqrt(1 - x * x) - 1);
@@ -184,18 +231,20 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInBack(float x)
+        public static float EaseInBack(float x)
         {
             float s = 1.70158f;
             return x * x * ((s + 1) * x - s);
         }
-        public static float easeOutBack(float x)
+
+        public static float EaseOutBack(float x)
         {
             float s = 1.70158f;
             x--;
             return (x * x * ((s + 1) * x + s) + 1);
         }
-        public static float easeInOutBack(float x)
+
+        public static float EaseInOutBack(float x)
         {
             float s = 1.70158f;
             x *= 2;
@@ -205,7 +254,7 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInElastic(float x)
+        public static float EaseInElastic(float x)
         {
             if (x == 0) return 0;
             if (x == 1) return 1;
@@ -214,7 +263,8 @@ namespace Glaas.EasingsCurves
             x -= 1;
             return -(Mathf.Pow(2, 10 * x) * Mathf.Sin((x - s) * (2 * Mathf.PI) / p));
         }
-        public static float easeOutElastic(float x)
+
+        public static float EaseOutElastic(float x)
         {
             if (x == 0) return 0;
             if (x == 1) return 1;
@@ -222,7 +272,8 @@ namespace Glaas.EasingsCurves
             float s = p / 4;
             return Mathf.Pow(2, -10 * x) * Mathf.Sin((x - s) * (2 * Mathf.PI) / p) + 1;
         }
-        public static float easeInOutElastic(float x)
+
+        public static float EaseInOutElastic(float x)
         {
             if (x == 0) return 0;
             if (x == 1) return 1;
@@ -235,34 +286,153 @@ namespace Glaas.EasingsCurves
         }
 
 
-        public static float easeInBounce(float x) { return 1 - easeOutBounce(1 - x); }
-        public static float easeOutBounce(float x)
+        public static float EaseInBounce(float x)
         {
-            if (x < (1 / 2.75f))
+            return 1 - EaseOutBounce(1 - x);
+        }
+
+        public static float EaseOutBounce(float x)
+        {
+            switch (x)
             {
-                return 7.5625f * x * x;
-            }
-            else if (x < (2 / 2.75f))
-            {
-                x -= (1.5f / 2.75f);
-                return 7.5625f * x * x + 0.75f;
-            }
-            else if (x < (2.5 / 2.75f))
-            {
-                x -= (2.25f / 2.75f);
-                return 7.5625f * x * x + 0.9375f;
-            }
-            else
-            {
-                x -= (2.625f / 2.75f);
-                return 7.5625f * x * x + 0.984375f;
+                case < 1 / 2.75f:
+                    return 7.5625f * x * x;
+                case < 2 / 2.75f:
+                    x -= (1.5f / 2.75f);
+                    return 7.5625f * x * x + 0.75f;
+                default:
+                {
+                    if (x < (2.5 / 2.75f))
+                    {
+                        x -= (2.25f / 2.75f);
+                        return 7.5625f * x * x + 0.9375f;
+                    }
+
+                    x -= (2.625f / 2.75f);
+                    return 7.5625f * x * x + 0.984375f;
+                }
             }
         }
-        public static float easeInOutBounce(float x)
+
+        public static float EaseInOutBounce(float x)
         {
-            if (x < 0.5f) return easeInBounce(x * 2) * 0.5f;
-            return easeOutBounce(x * 2 - 1) * 0.5f + 0.5f;
+            if (x < 0.5f) return EaseInBounce(x * 2) * 0.5f;
+            return EaseOutBounce(x * 2 - 1) * 0.5f + 0.5f;
+        }
+
+        public static float Linear(float x)
+        {
+            return x;
+        }
+
+        public static Curve GetCurveByName(string name)
+        {
+            switch (name)
+            {
+                case "EaseInSine": return Curve.EaseInSine;
+                case "EaseOutSine": return Curve.EaseOutSine;
+                case "EaseInOutSine": return Curve.EaseInOutSine;
+                case "EaseInQuad": return Curve.EaseInQuad;
+                case "EaseOutQuad": return Curve.EaseOutQuad;
+                case "EaseInOutQuad": return Curve.EaseInOutQuad;
+                case "EaseInCubic": return Curve.EaseInCubic;
+                case "EaseOutCubic": return Curve.EaseOutCubic;
+                case "EaseInOutCubic": return Curve.EaseInOutCubic;
+                case "EaseInQuart": return Curve.EaseInQuart;
+                case "EaseOutQuart": return Curve.EaseOutQuart;
+                case "EaseInOutQuart": return Curve.EaseInOutQuart;
+                case "EaseInQuint": return Curve.EaseInQuint;
+                case "EaseOutQuint": return Curve.EaseOutQuint;
+                case "EaseInOutQuint": return Curve.EaseInOutQuint;
+                case "EaseInExpo": return Curve.EaseInExpo;
+                case "EaseOutExpo": return Curve.EaseOutExpo;
+                case "EaseInOutExpo": return Curve.EaseInOutExpo;
+                case "EaseInCirc": return Curve.EaseInCirc;
+                case "EaseOutCirc": return Curve.EaseOutCirc;
+                case "EaseInOutCirc": return Curve.EaseInOutCirc;
+                case "EaseInBack": return Curve.EaseInBack;
+                case "EaseOutBack": return Curve.EaseOutBack;
+                case "EaseInOutBack": return Curve.EaseInOutBack;
+                case "EaseInElastic": return Curve.EaseInElastic;
+                case "EaseOutElastic": return Curve.EaseOutElastic;
+                case "EaseInOutElastic": return Curve.EaseInOutElastic;
+                case "EaseInBounce": return Curve.EaseInBounce;
+                case "EaseOutBounce": return Curve.EaseOutBounce;
+                case "EaseInOutBounce": return Curve.EaseInOutBounce;
+                case "Linear": return Curve.Linear;
+                default: throw new System.Exception("Curve not found: " + name);
+            }
+        }
+
+        public static float Evaluate(float x, Curve curve)
+        {
+            switch (curve)
+            {
+                case Curve.EaseInSine:
+                    return EaseInSine(x);
+                case Curve.EaseOutSine:
+                    return EaseOutSine(x);
+                case Curve.EaseInOutSine:
+                    return EaseInOutSine(x);
+                case Curve.EaseInQuad:
+                    return EaseInQuad(x);
+                case Curve.EaseOutQuad:
+                    return EaseOutQuad(x);
+                case Curve.EaseInOutQuad:
+                    return EaseInOutQuad(x);
+                case Curve.EaseInCubic:
+                    return EaseInCubic(x);
+                case Curve.EaseOutCubic:
+                    return EaseOutCubic(x);
+                case Curve.EaseInOutCubic:
+                    return EaseInOutCubic(x);
+                case Curve.EaseInQuart:
+                    return EaseInQuart(x);
+                case Curve.EaseOutQuart:
+                    return EaseOutQuart(x);
+                case Curve.EaseInOutQuart:
+                    return EaseInOutQuart(x);
+                case Curve.EaseInQuint:
+                    return EaseInQuint(x);
+                case Curve.EaseOutQuint:
+                    return EaseOutQuint(x);
+                case Curve.EaseInOutQuint:
+                    return EaseInOutQuint(x);
+                case Curve.EaseInExpo:
+                    return EaseInExpo(x);
+                case Curve.EaseOutExpo:
+                    return EaseOutExpo(x);
+                case Curve.EaseInOutExpo:
+                    return EaseInOutExpo(x);
+                case Curve.EaseInCirc:
+                    return EaseInCirc(x);
+                case Curve.EaseOutCirc:
+                    return EaseOutCirc(x);
+                case Curve.EaseInOutCirc:
+                    return EaseInOutCirc(x);
+                case Curve.EaseInBack:
+                    return EaseInBack(x);
+                case Curve.EaseOutBack:
+                    return EaseOutBack(x);
+                case Curve.EaseInOutBack:
+                    return EaseInOutBack(x);
+                case Curve.EaseInElastic:
+                    return EaseInElastic(x);
+                case Curve.EaseOutElastic:
+                    return EaseOutElastic(x);
+                case Curve.EaseInOutElastic:
+                    return EaseInOutElastic(x);
+                case Curve.EaseInBounce:
+                    return EaseInBounce(x);
+                case Curve.EaseOutBounce:
+                    return EaseOutBounce(x);
+                case Curve.EaseInOutBounce:
+                    return EaseInOutBounce(x);
+                case Curve.Linear:
+                    return Linear(x);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(curve), curve, null);
+            }
         }
     }
 }
-
