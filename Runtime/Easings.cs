@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Glaas.EasingCurves
+namespace Glaas.Easings
 {
     public static class Easings
     {
